@@ -18,7 +18,26 @@ public class GetContactList {
 
     private RequestSpecification httpRequest;
     private Response response;
-    private final String authToken = ConfigReader.getValue("user","BearerAuth");
+    private String authToken = null;
+    private final String email = ConfigReader.getValue("user", "email");
+    private final String password = ConfigReader.getValue("user", "password");
+
+
+    @Given("get user's auth token")
+    public void getUserSAuthToken() {
+        Map<String, String> body = new HashMap<>();
+        body.put("email", email);
+        body.put("password", password);
+
+        Response loginResponse = RestAssured.given()
+                .contentType("application/json")
+                .body(body)
+                .when()
+                .post("https://thinking-tester-contact-list.herokuapp.com/users/login");
+
+       authToken = loginResponse.jsonPath().getString("token");
+    }
+
 
     @Given("hit the url of contacts api endpoint with auth token")
     public void hitTheContactsGetUrl() {
@@ -41,4 +60,6 @@ public class GetContactList {
         System.out.println(actualStatusCode);
         assertThat(actualStatusCode, is(statusCode));
     }
+
+
 }
