@@ -1,4 +1,4 @@
-package StepDefinitions.API;
+package API.StepDefinitions;
 
 import Utils.ConfigReader;
 import io.cucumber.java.en.Given;
@@ -7,7 +7,6 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.http.Header;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +20,7 @@ public class GetContactList {
     private Response response;
     private final String authToken = ConfigReader.getValue("user","BearerAuth");
 
-    @Given("hit the url of contacts api endpoint")
+    @Given("hit the url of contacts api endpoint with auth token")
     public void hitTheContactsGetUrl() {
         RestAssured.baseURI = "https://thinking-tester-contact-list.herokuapp.com";
 
