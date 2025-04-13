@@ -25,7 +25,7 @@ The framework is built with Cucumber for BDD and managed with Maven.
 java -version
 mvn -version
 ```
-### For API tests check details here: [feature file](src/test/java/API/Features) and here: [Steps](src/test/java/API/StepDefinitions)
+### For API tests check details here: [feature file](src/test/resources/API) and here: [Steps](src/test/java/API/StepDefinitions)
 
 ## Ongoing project...
 
