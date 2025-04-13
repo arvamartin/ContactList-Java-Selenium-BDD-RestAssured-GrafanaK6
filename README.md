@@ -13,6 +13,7 @@ The framework is built with Cucumber for BDD and managed with Maven.
 * [![Java][Java]][java-url]
 * [![Maven][Maven]][maven.url]
 * [![Selenium][Selenium]][selenium-url]
+* [![Rest Assured][Rest Assured]][restassured-url]
 
 ## Setup Instructions
 ### Prerequisites
@@ -36,5 +37,7 @@ mvn -version
 [docker-url]:https://www.docker.com/products/docker-desktop/
 [Selenium]: https://img.shields.io/badge/-selenium-CB02A?style=for-the-badge&logo=selenium&logoColor=white
 [selenium-url]: https://www.selenium.dev/
+[Rest Assured]: https://img.shields.io/badge/-rest%20assured-000000?style=for-the-badge&logo=restassured&logoColor=4CAF50
+[restassured-url]:https://rest-assured.io/
 
 
