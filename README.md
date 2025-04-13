@@ -31,7 +31,7 @@ mvn -version
 
 [Java]:https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
 [java-url]:https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
-[Maven]:https://img.shields.io/badge/-maven-FFA500?style=for-the-badge&logo=selenium&logoColor=white
+[Maven]:https://img.shields.io/badge/-maven-FFA500?style=for-the-badge&logo=maven&logoColor=white
 [maven.url]: https://maven.apache.org/download.cgi
 [Docker]:https://img.shields.io/badge/-docker-white?style=for-the-badge&logo=docker&logoColor=blue
 [docker-url]:https://www.docker.com/products/docker-desktop/
