@@ -3,7 +3,7 @@ Feature:  Get all contacts from GET api
 
   Scenario: verify the get api for the contacts
     Given get user's auth token
-    When hit the url of contacts api endpoint with auth token
-    When pass the url of contacts in the request
+    When hit the url with auth token
+    When pass the "/contacts" url in the request
     Then receive the 200 response code
 

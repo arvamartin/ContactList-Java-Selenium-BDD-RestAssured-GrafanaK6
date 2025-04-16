@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.*;
 
 public class GetContactList {
 
-    private RequestSpecification httpRequest;
+        private RequestSpecification httpRequest;
     private Response response;
     private String authToken = null;
     private final String email = ConfigReader.getValue("user", "email");
@@ -36,10 +36,11 @@ public class GetContactList {
                 .post("https://thinking-tester-contact-list.herokuapp.com/users/login");
 
        authToken = loginResponse.jsonPath().getString("token");
+       System.setProperty("authToken", authToken);
     }
 
 
-    @Given("hit the url of contacts api endpoint with auth token")
+    @Given("hit the url with auth token")
     public void hitTheContactsGetUrl() {
         RestAssured.baseURI = "https://thinking-tester-contact-list.herokuapp.com";
 
@@ -48,15 +49,17 @@ public class GetContactList {
         httpRequest = RestAssured.given().headers(headers);
     }
 
-    @When("pass the url of contacts in the request")
-    public void passTheUrlOfProductsInTheRequest() {
-        response = httpRequest.get("/contacts");
+    @When("pass the {string} url in the request")
+    public void passTheUrlOfProductsInTheRequest(String param) {
+        response = httpRequest.get(param);
+        System.out.println(response.body().prettyPrint());
+        System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
     }
 
 
     @Then("receive the {int} response code")
     public void receiveTheResponseCode(int statusCode) {
-        int actualStatusCode = response.getStatusCode();
+        int actualStatusCode = Integer.parseInt(System.getProperty("actualStatusCode"));
         System.out.println(actualStatusCode);
         assertThat(actualStatusCode, is(statusCode));
     }
