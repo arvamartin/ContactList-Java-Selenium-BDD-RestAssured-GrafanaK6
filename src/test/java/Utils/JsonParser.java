@@ -10,10 +10,10 @@ public class JsonParser {
 
     public static Map<String, Object> jsonReader(String fileName) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream("API/" + fileName);
+        InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream("API/Json/" + fileName);
 
         if (inputStream == null) {
-            throw new IllegalArgumentException("Fájl nem található: API/" + fileName);
+            throw new IllegalArgumentException("Cannot find file: API/" + fileName);
         }
         return mapper.readValue(inputStream, Map.class);
     }
