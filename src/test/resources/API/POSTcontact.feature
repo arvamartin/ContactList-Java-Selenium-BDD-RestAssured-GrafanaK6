@@ -1,4 +1,4 @@
-Feature: Post contact
+Feature: Post a contact
 
   Scenario: verify the post api for the contacts
     Given get user's auth token
