@@ -1,4 +1,4 @@
-package StepDefinitions;
+package StepDefinitions.UI;
 
 import Pages.RegistrationPage;
 import Utils.RandomGenerator;

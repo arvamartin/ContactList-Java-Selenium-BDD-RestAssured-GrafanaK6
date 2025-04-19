@@ -1,4 +1,4 @@
-package StepDefinitions;
+package StepDefinitions.UI;
 
 import Pages.HomePage;
 import io.cucumber.java.en.When;

@@ -1,6 +1,6 @@
 Feature:  Get all contacts from GET api
 
-
+@test
   Scenario: verify the get api for the contacts
     Given get user's auth token
     When hit the url with auth token

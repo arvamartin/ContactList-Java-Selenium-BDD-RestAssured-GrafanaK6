@@ -1,4 +1,4 @@
-package API.StepDefinitions;
+package StepDefinitions.API;
 
 import Utils.JsonParser;
 import io.cucumber.java.en.When;
@@ -31,5 +31,6 @@ public class PostContact {
                 .post(param);
 
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
+        System.out.println(response.jsonPath().getString("_id"));
     }
 }

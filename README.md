@@ -25,9 +25,18 @@ The framework is built with Cucumber for BDD and managed with Maven.
 java -version
 mvn -version
 ```
-### For API tests check details here: [feature file](src/test/resources/API) and here: [Steps](src/test/java/API/StepDefinitions)
+### For API tests check details here: [feature file](src/test/resources/Features/API) and here: [Steps](src/test/java/StepDefinitions/API)
 
-## Ongoing project...
+## Running the Tests
+* use [Runner](src/test/java/Runner.java) 
+
+### Or
+
+```bash
+mvn test
+```
+
+
 
 [Java]:https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
 [java-url]:https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html

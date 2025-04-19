@@ -1,4 +1,4 @@
-package StepDefinitions;
+package StepDefinitions.UI;
 
 import Pages.LoginPage;
 import io.cucumber.java.en.And;

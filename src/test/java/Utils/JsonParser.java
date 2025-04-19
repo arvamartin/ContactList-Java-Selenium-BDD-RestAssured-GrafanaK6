@@ -10,7 +10,7 @@ public class JsonParser {
 
     public static Map<String, Object> jsonReader(String fileName) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream("API/Json/" + fileName);
+        InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream("Json/" + fileName);
 
         if (inputStream == null) {
             throw new IllegalArgumentException("Cannot find file: API/" + fileName);
