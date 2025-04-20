@@ -13,7 +13,7 @@ public class JsonParser {
         InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream("Json/" + fileName);
 
         if (inputStream == null) {
-            throw new IllegalArgumentException("Cannot find file: API/" + fileName);
+            throw new IllegalArgumentException("Cannot find file: " + fileName);
         }
         return mapper.readValue(inputStream, Map.class);
     }
