@@ -2,37 +2,36 @@ package StepDefinitions.API;
 
 import Utils.HeaderBuilder;
 import Utils.JsonParser;
-import Utils.UpdateUtil;
+import Utils.RequestUtil;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 
-import java.io.IOException;
 import java.util.Map;
 
 public class UpdateContacts {
     private Response response;
     private Map<String, Object> reqBody;
+    private Map<String, Object> headers;
 
 
     @When("update contact from {string} in {string} put request")
-    public void updateFullContact(String fileName, String param) throws IOException {
+    public void updateFullContact(String fileName, String param) {
         reqBody = JsonParser.jsonReader(fileName);
-        Map<String, Object> headers = HeaderBuilder.buildAuthHeaders();
-        Map<String, Object> reqBody = JsonParser.jsonReader(fileName);
+        headers = HeaderBuilder.buildAuthHeaders();
+        reqBody = JsonParser.jsonReader(fileName);
 
-        response = UpdateUtil.performUpdate("put", param, headers, reqBody);
-
+        response = RequestUtil.sendRequest("put", param, headers, reqBody);
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
         System.out.println(response.getBody().prettyPrint());
     }
 
+
     @When("update contact from {string} in {string} patch request")
-    public void updatePartiallyContact(String fileName, String param) throws IOException {
+    public void updatePartiallyContact(String fileName, String param) {
         reqBody = JsonParser.jsonReader(fileName);
-        Map<String, Object> headers = HeaderBuilder.buildAuthHeaders();
+        headers = HeaderBuilder.buildAuthHeaders();
 
-        response = UpdateUtil.performUpdate("patch", param, headers, reqBody);
-
+        response = RequestUtil.sendRequest("patch", param, headers, reqBody);
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
         System.out.println(response.getBody().prettyPrint());
     }

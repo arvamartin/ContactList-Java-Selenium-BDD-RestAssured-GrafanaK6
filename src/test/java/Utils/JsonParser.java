@@ -21,7 +21,6 @@ public class JsonParser {
             if (inputStream == null) {
                 throw new IllegalArgumentException("Cannot find file: " + fileName);
             }
-
             result = mapper.readValue(inputStream, Map.class);
         } catch (IOException e) {
             logger.warn("Error while reading JSON file: " + fileName + " - " + e.getMessage());
@@ -33,7 +32,6 @@ public class JsonParser {
         }
         return result;
     }
-
 
 
 }
