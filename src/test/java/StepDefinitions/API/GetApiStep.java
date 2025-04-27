@@ -1,6 +1,7 @@
 package StepDefinitions.API;
 
 import Utils.ConfigReader;
+import Utils.RequestUtil;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,7 +15,7 @@ import java.util.Map;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class GetContactList {
+public class GetApiStep {
 
         private RequestSpecification httpRequest;
     private Response response;
@@ -25,15 +26,14 @@ public class GetContactList {
 
     @Given("get user's auth token")
     public void getUserSAuthToken() {
-        Map<String, String> body = new HashMap<>();
+        Map<String, Object> body = new HashMap<>();
         body.put("email", email);
         body.put("password", password);
 
-        Response loginResponse = RestAssured.given()
-                .contentType("application/json")
-                .body(body)
-                .when()
-                .post("https://thinking-tester-contact-list.herokuapp.com/users/login");
+        Response loginResponse = RequestUtil.sendRequest("post",
+                "https://thinking-tester-contact-list.herokuapp.com/users/login",
+                null,
+                body);
 
        authToken = loginResponse.jsonPath().getString("token");
        System.setProperty("authToken", authToken);
@@ -52,7 +52,7 @@ public class GetContactList {
     @When("pass the {string} url in the request")
     public void passTheUrlOfProductsInTheRequest(String param) {
         response = httpRequest.get(param);
-        System.out.println(response.body().prettyPrint());
+        response.body().prettyPrint();
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
     }
 

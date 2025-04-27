@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DeleteContacts {
+public class DeleteApiStep {
     private Response response;
     Map<String, Object> headers;
 

@@ -4,15 +4,12 @@ import Utils.HeaderBuilder;
 import Utils.JsonParser;
 import Utils.RequestUtil;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
-public class PostContact {
+public class PostApiStep {
 
 
     @When("send new contact from {string} in {string} post request")

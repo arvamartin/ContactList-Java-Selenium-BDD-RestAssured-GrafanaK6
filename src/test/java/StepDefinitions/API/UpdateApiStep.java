@@ -8,7 +8,7 @@ import io.restassured.response.Response;
 
 import java.util.Map;
 
-public class UpdateContacts {
+public class UpdateApiStep {
     private Response response;
     private Map<String, Object> reqBody;
     private Map<String, Object> headers;
@@ -22,7 +22,7 @@ public class UpdateContacts {
 
         response = RequestUtil.sendRequest("put", param, headers, reqBody);
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
-        System.out.println(response.getBody().prettyPrint());
+        response.getBody().prettyPrint();
     }
 
 
@@ -33,7 +33,7 @@ public class UpdateContacts {
 
         response = RequestUtil.sendRequest("patch", param, headers, reqBody);
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
-        System.out.println(response.getBody().prettyPrint());
+        response.getBody().prettyPrint();
     }
 }
 
