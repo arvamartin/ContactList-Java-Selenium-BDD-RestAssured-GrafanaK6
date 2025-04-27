@@ -1,28 +1,19 @@
 package StepDefinitions.API;
 
+import Utils.RequestUtil;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class DeleteApiStep {
     private Response response;
-    Map<String, Object> headers;
 
     @When("send DELETE request to {string}")
     public void deleteContacts(String param){
-        String authToken = System.getProperty("authToken");
-        headers = new HashMap<>();
-        headers.put("Authorization", "Bearer " + authToken);
+        Map<String, Object> headers = RequestUtil.buildAuthHeaders();
 
-        RestAssured.baseURI = "https://thinking-tester-contact-list.herokuapp.com";
-
-        response = RestAssured.given()
-                .headers(headers)
-                .delete(param);
-
+        response = RequestUtil.sendRequest("delete", param, headers, null);
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
     }
 }

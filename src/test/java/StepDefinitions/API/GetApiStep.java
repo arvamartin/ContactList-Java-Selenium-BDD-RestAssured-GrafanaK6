@@ -44,8 +44,7 @@ public class GetApiStep {
     public void hitTheContactsGetUrl() {
         RestAssured.baseURI = "https://thinking-tester-contact-list.herokuapp.com";
 
-        Map<String, Object> headers = new HashMap<>();
-        headers.put("Authorization", "Bearer " + authToken);
+        Map<String, Object> headers = RequestUtil.buildAuthHeaders();
         httpRequest = RestAssured.given().headers(headers);
     }
 
