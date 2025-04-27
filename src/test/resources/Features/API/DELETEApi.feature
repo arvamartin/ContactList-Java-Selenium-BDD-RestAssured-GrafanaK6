@@ -6,5 +6,5 @@ Feature: Delete contact
     Then receive the 200 response code
     Examples:
       |contactID |
-      |680d1ad3aa57370015878a45|
+      |680df8fafd2464001579e7ad|
 
