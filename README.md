@@ -21,7 +21,7 @@ The framework is built with **Cucumber for BDD** and managed with Maven.
 * [![Java][Java]][java-url]
 * [![Maven][Maven]][maven.url]
 
-**To check the installed Java version, run the following command:**
+**Check the installed Java and Maven versions, run the following command:**
 ```bash
 java -version
 mvn -version
@@ -37,6 +37,8 @@ mvn test
 ```
 
 ### For API tests check details here: [feature file](src/test/resources/Features/API) and here: [Steps](src/test/java/StepDefinitions/API)
+### For UI tests: [feature file](src/test/resources/Features/UI) and here: [Steps](src/test/java/StepDefinitions/UI)
+
 
 
 
