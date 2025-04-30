@@ -17,11 +17,12 @@ import static org.hamcrest.Matchers.*;
 
 public class GetApiStep {
 
-        private RequestSpecification httpRequest;
+    private RequestSpecification httpRequest;
     private Response response;
     private String authToken = null;
     private final String email = ConfigReader.getValue("user", "email");
     private final String password = ConfigReader.getValue("user", "password");
+    private final String BASE_URI = ConfigReader.getValue("base", "uri");
 
 
     @Given("get user's auth token")
@@ -31,7 +32,7 @@ public class GetApiStep {
         body.put("password", password);
 
         Response loginResponse = RequestUtil.sendRequest("post",
-                "https://thinking-tester-contact-list.herokuapp.com/users/login",
+                BASE_URI + "/users/login",
                 null,
                 body);
 
@@ -42,7 +43,7 @@ public class GetApiStep {
 
     @Given("hit the url with auth token")
     public void hitTheContactsGetUrl() {
-        RestAssured.baseURI = "https://thinking-tester-contact-list.herokuapp.com";
+        RestAssured.baseURI = BASE_URI;
 
         Map<String, Object> headers = RequestUtil.buildAuthHeaders();
         httpRequest = RestAssured.given().headers(headers);

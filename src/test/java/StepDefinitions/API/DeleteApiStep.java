@@ -7,13 +7,12 @@ import io.restassured.response.Response;
 import java.util.Map;
 
 public class DeleteApiStep {
-    private Response response;
 
     @When("send DELETE request to {string}")
-    public void deleteContacts(String param){
+    public void deleteContacts(String param) {
         Map<String, Object> headers = RequestUtil.buildAuthHeaders();
 
-        response = RequestUtil.sendRequest("delete", param, headers, null);
+        Response response = RequestUtil.sendRequest("delete", param, headers, null);
         System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
     }
 }
