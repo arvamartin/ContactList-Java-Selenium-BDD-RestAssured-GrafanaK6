@@ -10,36 +10,38 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RequestUtil {
-    private static Logger logger = (Logger) LogManager.getLogger(RequestUtil.class);
 
-    private static final String BASE_URI = "https://thinking-tester-contact-list.herokuapp.com";
+    private static Logger logger = (Logger) LogManager.getLogger(RequestUtil.class);
+    private static final String BASE_URI = ConfigReader.getValue("base", "uri");
 
     public static Response sendRequest(String method, String param, Map<String, Object> headers, Map<String, Object> reqBody) {
         RestAssured.baseURI = BASE_URI;
 
-        RequestSpecification httpRequest = RestAssured.given()
-                .contentType("application/json");
+        try {
+            RequestSpecification httpRequest = RestAssured.given()
+                    .contentType("application/json");
 
-        if (reqBody != null) {
-            httpRequest.body(reqBody);
+            if (reqBody != null) {
+                httpRequest.body(reqBody);
+            }
+
+            if (headers != null) {
+                httpRequest.headers(headers);
+            }
+            Response response = switch (method.toLowerCase()) {
+                case "put" -> httpRequest.put(param);
+                case "patch" -> httpRequest.patch(param);
+                case "post" -> httpRequest.post(param);
+                case "delete" -> httpRequest.delete(param);
+                default -> throw new IllegalArgumentException("Unsupported method: " + method);
+            };
+            System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
+            return response;
+        } catch (Exception e) {
+            logger.warn("HTTP request failed: {}", e.getMessage(), e);
+            return null;
         }
-
-        if (headers != null) {
-            httpRequest.headers(headers);
-        }
-
-        Response response = switch (method.toLowerCase()) {
-            case "put" -> httpRequest.put(param);
-            case "patch" -> httpRequest.patch(param);
-            case "post" -> httpRequest.post(param);
-            case "delete" -> httpRequest.delete(param);
-            default -> throw new IllegalArgumentException("Unsupported method: " + method);
-        };
-        System.setProperty("actualStatusCode", String.valueOf(response.getStatusCode()));
-
-        return response;
     }
-
 
 
     public static Map<String, Object> buildAuthHeaders() {
@@ -52,7 +54,7 @@ public class RequestUtil {
             }
             headers.put("Authorization", "Bearer " + authToken);
         } catch (Exception e) {
-            logger.warn("Error while building authorization headers:"  + e.getMessage());
+            logger.warn("Error while building authorization headers:" + e.getMessage());
             throw new RuntimeException("Failed to build authorization headers.", e);
         }
         return headers;
