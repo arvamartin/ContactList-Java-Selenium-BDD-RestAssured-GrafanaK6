@@ -7,7 +7,7 @@ Feature: Patch & Put - update
     Then receive the 200 response code
     Examples:
       | contactID                |
-      | 67fbb82ad9faca0015462680 |
+      | 6817c7b498494f0015573520 |
 
 
   Scenario Outline: verify the put api for the contacts
@@ -16,5 +16,5 @@ Feature: Patch & Put - update
     Then receive the 200 response code
     Examples:
       | contactID                |
-      | 67fbb82ad9faca0015462680 |
+      | 6817c7b498494f0015573520 |
 

@@ -5,6 +5,5 @@ Feature: Delete contact
     And send DELETE request to "/contacts/<contactID>"
     Then receive the 200 response code
     Examples:
-      |contactID |
-      |680df8fafd2464001579e7ad|
-
+      | contactID                |
+      | 6817c8cf98494f001557352d |
