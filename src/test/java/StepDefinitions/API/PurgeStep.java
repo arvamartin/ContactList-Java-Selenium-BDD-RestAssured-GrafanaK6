@@ -20,7 +20,6 @@ public class PurgeStep {
 
     @When("get the ID of all the contacts")
     public void getIDOfContacts() {
-        try {
             RestAssured.baseURI = BASE_URI;
             headers = RequestUtil.buildAuthHeaders();
 
@@ -30,9 +29,6 @@ public class PurgeStep {
 
             IDs = response.jsonPath().getList("_id");
             System.out.println(IDs);
-        } catch (Exception e) {
-            logger.warn("Error occurred while fetching contacts: {}", e.getMessage(), e);
-        }
     }
 
     @When("delete the whole contact list")
