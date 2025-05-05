@@ -33,7 +33,7 @@ mvn -version
 ### Or
 
 ```bash
-mvn test
+mvn test -Dcucumber
 ```
 
 ### For API tests check details here: [feature file](src/test/resources/Features/API) and here: [Steps](src/test/java/StepDefinitions/API)
