@@ -7,6 +7,8 @@ public class RandomGenerator {
     static Random random = new Random();
     private static String[] domains = {"gmail.com", "yahoo.com", "hotmail.com", "outlook.com"};
     private static String[] fakeDomains = {"fake.fake", "invalid.notvalid", "something.sg"};
+    private static String [] names = {"John", "Marc", "Nick", "Max", "James", "Finn", "Rey", "Hex", "Hailey",
+                                        "Philip", "Washington"};
 
 
     public static String generateRandomString(int length) {
@@ -31,11 +33,15 @@ public class RandomGenerator {
     }
 
     public static String generateRandomEmailAddress() {
-
         String userName = generateRandomString(10);
         String domain = domains[random.nextInt(domains.length)];
 
         return userName + "@" + domain;
+    }
+
+    public static String generateRandomNames() {
+        String name = names[random.nextInt(names.length)];
+        return name;
     }
 
 

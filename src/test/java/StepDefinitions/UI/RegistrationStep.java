@@ -16,13 +16,13 @@ public class RegistrationStep {
 
     @When("user enters firstname")
     public void userEntersFirstname() {
-        String firstName = RandomGenerator.generateRandomString(8);
+        String firstName = RandomGenerator.generateRandomNames();
         registrationPage.fillFirstNameInput(firstName);
     }
 
     @And("user enters lastname")
     public void userEntersLastname() {
-        String lastName = RandomGenerator.generateRandomString(8);
+        String lastName = RandomGenerator.generateRandomNames();
         registrationPage.fillLastNameInput(lastName);
     }
 
