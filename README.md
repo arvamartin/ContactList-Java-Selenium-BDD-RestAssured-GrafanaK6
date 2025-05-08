@@ -15,16 +15,19 @@ The framework is built with **Cucumber for BDD** and managed with Maven.
 * [![Selenium][Selenium]][selenium-url]
 * [![CUCUMBER][CUCUMBER]][CUCUMBER-URL]
 * [![Rest Assured][Rest Assured]][restassured-url]
+* [![Grafana K6][Grafana K6]][Grafana-k6-url]
 
 ## Setup Instructions
 ### Prerequisites
 * [![Java][Java]][java-url]
 * [![Maven][Maven]][maven.url]
+* [![Grafana K6][Grafana K6]][Grafana-k6-url]
 
 **Check the installed Java and Maven versions, run the following command:**
 ```bash
 java -version
 mvn -version
+k6 version
 ```
 
 ## Running the Tests
@@ -36,9 +39,15 @@ mvn -version
 mvn test -Dcucumber
 ```
 
-### For API tests check details here: [feature file](src/test/resources/Features/API) and here: [Steps](src/test/java/StepDefinitions/API)
-### For UI tests: [feature file](src/test/resources/Features/UI) and here: [Steps](src/test/java/StepDefinitions/UI)
+**for performance tests**
+```bash
+cd Performance
+k6 run loadtest.js
+```
 
+### For API tests check details here: [feature file](src/test/resources/Features/API) and here: [Steps](src/test/java/StepDefinitions/API)
+### For Performance tests: [Performance](Performance)
+### For UI tests: [feature file](src/test/resources/Features/UI) and here: [Steps](src/test/java/StepDefinitions/UI)
 
 
 
@@ -55,5 +64,7 @@ mvn test -Dcucumber
 [restassured-url]:https://rest-assured.io/
 [Cucumber]: https://camo.githubusercontent.com/788fbe630f1bafea0c87198f6e3e24e3f03eeef9899248581afc757f11ff5054/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f437563756d6265722d3433423032413f7374796c653d666f722d7468652d6261646765266c6f676f3d637563756d626572266c6f676f436f6c6f723d7768697465
 [CUCUMBER-URL]: https://cucumber.io/
+[Grafana K6]:https://img.shields.io/badge/grafana-%23F46800.svg?style=for-the-badge&logo=grafana&logoColor=white
+[Grafana-k6-url]:https://grafana.com/docs/k6/latest/set-up/install-k6/
 
 

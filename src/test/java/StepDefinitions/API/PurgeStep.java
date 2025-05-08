@@ -34,7 +34,7 @@ public class PurgeStep {
     @When("delete the whole contact list")
     public void deleteWholeContactList() {
         if (IDs == null || IDs.isEmpty()) {
-            logger.warn("No contacts to delete.");
+            logger.info("No contacts to delete.");
             return;
         }
 
