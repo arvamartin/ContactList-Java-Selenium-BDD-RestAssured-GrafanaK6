@@ -4,7 +4,7 @@
 <img src="contacts.png" alt="sut.png" width="700"/>;
 
 ## Overview
-This project performs end-to-end UI, API and Performance testing for a contact list application (https://thinking-tester-contact-list.herokuapp.com). It uses Selenium WebDriver for UI automation and Rest Assured for API testing. 
+This project performs end-to-end **UI, API and Performance** testing for a contact list application (https://thinking-tester-contact-list.herokuapp.com). It uses Selenium WebDriver for UI automation and Rest Assured for API testing. 
 The framework is built with **Cucumber for BDD** and managed with Maven.
 
 
@@ -42,7 +42,12 @@ mvn test -Dcucumber
 **for performance tests**
 ```bash
 cd Performance
+```
+```bash
 k6 run loadtest.js
+```
+```bash
+k6 run stressTest.js
 ```
 
 ### For API tests check details here: [feature file](src/test/resources/Features/API) and here: [Steps](src/test/java/StepDefinitions/API)
