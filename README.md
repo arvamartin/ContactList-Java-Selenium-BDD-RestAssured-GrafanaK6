@@ -31,6 +31,8 @@ k6 version
 ```
 
 ## Running the Tests
+### for UI and API tests:
+
 **use [Runner](src/test/java/Runner.java)**
 
 ### Or
@@ -39,16 +41,19 @@ k6 version
 mvn test -Dcucumber
 ```
 
-**for performance tests**
-```bash
-cd Performance
-```
-```bash
-k6 run loadtest.js
-```
-```bash
-k6 run stressTest.js
-```
+### for performance tests:
+* 1st
+    ```bash
+    cd Performance
+    ```
+* Then
+    ```bash
+    k6 run loadtest.js
+    ```
+    or
+    ```bash
+    k6 run stressTest.js
+    ```
 
 ### For API tests check details here: [feature file](src/test/resources/Features/API) and here: [Steps](src/test/java/StepDefinitions/API)
 ### For Performance tests: [Performance](Performance)
