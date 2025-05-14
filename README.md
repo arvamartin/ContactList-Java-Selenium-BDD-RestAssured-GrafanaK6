@@ -27,7 +27,7 @@ The framework is built with **Cucumber for BDD** and managed with Maven.
 ```bash
 java -version
 mvn -version
-k6 version
+k6 version #for performance tests
 ```
 
 ## Running the Tests
