@@ -1,4 +1,4 @@
-import { login, getContacts } from './common/api.js';
+import { login, getContacts } from './Common/API.js';
 import { sleep } from 'k6';
 
 export let options = {
