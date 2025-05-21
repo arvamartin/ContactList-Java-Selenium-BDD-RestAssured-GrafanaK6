@@ -48,7 +48,7 @@ mvn test -Dcucumber
     ```
 * Then
     ```bash
-    k6 run loadtest.js
+    k6 run loadTest.js
     ```
     or
     ```bash
