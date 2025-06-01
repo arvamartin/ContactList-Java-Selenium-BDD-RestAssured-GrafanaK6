@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/Features/API", "src/test/resources/Features/UI"},
         glue = {"/StepDefinitions/API", "StepDefinitions/UI", "Utils"},
         plugin = {"pretty", "html:target/cucumber-reports.html"},
-        monochrome = true
+        monochrome = false
         , tags = "not @manualOnly"
 )
 public class Runner {
