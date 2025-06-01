@@ -1,3 +1,4 @@
+@ui
 Feature: Login functionality
 
   Background:

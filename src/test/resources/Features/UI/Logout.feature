@@ -1,3 +1,4 @@
+@ui
 Feature: Logout functionality
 
   Background:

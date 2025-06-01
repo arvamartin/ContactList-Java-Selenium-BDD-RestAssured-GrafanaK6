@@ -1,3 +1,4 @@
+@ui
 Feature: Registration functionality
 
 

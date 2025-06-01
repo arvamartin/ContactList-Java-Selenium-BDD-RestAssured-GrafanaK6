@@ -1,3 +1,4 @@
+@ui
 Feature: Adding new contact functionality
 
   Background:
