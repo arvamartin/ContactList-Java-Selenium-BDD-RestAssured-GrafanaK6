@@ -6,16 +6,27 @@ import java.util.Properties;
 
 public class ConfigReader {
 
-    public static String getValue(String section, String key) {
-        Properties properties = new Properties();
+    private static Properties properties = new Properties();
+
+    static {
         try (InputStream fis = ConfigReader.class.getClassLoader().getResourceAsStream("Config.properties")) {
-            properties.load(fis);
+            if (fis != null) {
+                properties.load(fis);
+            } else {
+                throw new RuntimeException("Could not find Config.properties");
+            }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Could not load Config.properties", e);
         }
+    }
+
+    public static String getValue(String section, String key) {
         String prefixedKey = section + "." + key;
 
+        String systemProperty = System.getProperty(prefixedKey);
+        if (systemProperty != null && !systemProperty.isEmpty()) {
+            return systemProperty;
+        }
         return properties.getProperty(prefixedKey);
-
     }
 }
