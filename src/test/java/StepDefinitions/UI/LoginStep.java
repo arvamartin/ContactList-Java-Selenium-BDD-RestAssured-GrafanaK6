@@ -20,6 +20,11 @@ public class LoginStep {
     @Given("user is already on the {string} page")
     public void userIsOnTheWebPage(String url) throws ConnectException {
         loginPage.navigate(url);
+        loginPage.verifyHeadingTitle()
+                .verifyWelcomeMessage()
+                .verifyLoginHeader()
+                .verifySignUpTextVisible()
+                .verifyFooter();
     }
 
     @When("user enters {string} email address")
