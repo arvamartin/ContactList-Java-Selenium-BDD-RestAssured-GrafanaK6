@@ -10,14 +10,15 @@ The framework is built with **Cucumber for BDD** and managed with Maven.
 
 ## Built with
 **The project utilizes the following technologies and tools:**
-* [![Java][Java]][java-url]
-* [![Maven][Maven]][maven.url]
-* [![Selenium][Selenium]][selenium-url]
-* [![CUCUMBER][CUCUMBER]][CUCUMBER-URL]
-* [![Rest Assured][Rest Assured]][restassured-url]
-* [![Grafana K6][Grafana K6]][Grafana-k6-url]
-* [![Selenium Grid][Selenium Grid]][SeleniumGrid-url]
-* [![Docker][Docker]][Docker-url]
+
+[![Java][Java]][java-url]
+[![Maven][Maven]][maven.url]
+[![Selenium][Selenium]][selenium-url]
+[![CUCUMBER][CUCUMBER]][CUCUMBER-URL]
+[![Rest Assured][Rest Assured]][restassured-url]
+[![Grafana K6][Grafana K6]][Grafana-k6-url]
+[![Selenium Grid][Selenium Grid]][SeleniumGrid-url]
+[![Docker][Docker]][Docker-url]
 
 
 ## Setup Instructions
@@ -25,23 +26,23 @@ The framework is built with **Cucumber for BDD** and managed with Maven.
 * [![Java][JavaSmall]][java-url]
 * [![Maven][MavenSmall]][maven.url]
 
-**Additionally (Optional)**
-* [![Grafana K6][Grafana K6Small]][Grafana-k6-url]
-* [![Selenium Grid][Selenium GridSmall]][SeleniumGrid-url]
-* [![Docker][DockerSmall]][Docker-url]
-
-**Check the versions with the following command:**
 ```bash
 java -version
 mvn -version
 ```
+
+**Additionally** (Performance, SeleniumGrid)
+* [![Grafana K6][Grafana K6Small]][Grafana-k6-url]
+* [![Selenium Grid][Selenium GridSmall]][SeleniumGrid-url]
+* [![Docker][DockerSmall]][Docker-url]
+
 ```bash
-#for performance tests
+# for performance tests
 k6 version
 ```
 
 ```bash
-#Additionally for Selenium Grid
+# for Selenium Grid
 docker -v
 ```
 
@@ -98,7 +99,7 @@ mvn test "-Dbasic_info.browser=chrome" "-Dbasic_info.runMode=grid" "-Dcucumber.f
 [docker-url]:https://www.docker.com/products/docker-desktop/
 [Selenium]: https://img.shields.io/badge/-selenium-CB02A?style=for-the-badge&logo=selenium&logoColor=white
 [selenium-url]: https://www.selenium.dev/
-[Rest Assured]: https://img.shields.io/badge/-rest%20assured-000000?style=for-the-badge&logo=restassured&logoColor=4CAF50
+[Rest Assured]: https://img.shields.io/badge/REST%20Assured-009688?style=for-the-badge&logo=java&logoColor=white
 [restassured-url]:https://rest-assured.io/
 [Cucumber]: https://camo.githubusercontent.com/788fbe630f1bafea0c87198f6e3e24e3f03eeef9899248581afc757f11ff5054/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f437563756d6265722d3433423032413f7374796c653d666f722d7468652d6261646765266c6f676f3d637563756d626572266c6f676f436f6c6f723d7768697465
 [CUCUMBER-URL]: https://cucumber.io/
