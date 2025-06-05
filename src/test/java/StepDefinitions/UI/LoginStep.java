@@ -20,6 +20,11 @@ public class LoginStep {
     @Given("user is already on the {string} page")
     public void userIsOnTheWebPage(String url) throws ConnectException {
         loginPage.navigate(url);
+
+    }
+
+    @When("user verifies login page's ui elements")
+    public void userVerifiesUiElements() {
         loginPage.verifyHeadingTitle()
                 .verifyWelcomeMessage()
                 .verifyLoginHeader()

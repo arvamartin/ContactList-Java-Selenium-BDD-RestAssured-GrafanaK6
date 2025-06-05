@@ -6,7 +6,8 @@ Feature: Login functionality
 
 
   Scenario: user can login with already registered credentials
-    When user enters "test@freemail.hu" email address
+    When user verifies login page's ui elements
+    And user enters "test@freemail.hu" email address
     And user enters "tesztelek" password
     And user clicks on the submit button
     Then user is on the "https://thinking-tester-contact-list.herokuapp.com/contactList" page
