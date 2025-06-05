@@ -25,7 +25,7 @@ public class HomePage extends BasePage{
             driver.manage().addCookie(cookie);
             driver.navigate().refresh();
         } else {
-            System.out.println("authToken system property is not set.");
+            logger.warn("authToken system property is not set.");
         }
     }
 
