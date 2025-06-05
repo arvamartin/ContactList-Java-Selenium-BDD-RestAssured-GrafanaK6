@@ -17,6 +17,7 @@ public class AddContactStep {
 
     @When("user clicks on add new contact button")
     public void userClicksOnAddNewContactButton() {
+        homePage.getCookie();
         homePage.clickOnAddNewContactBtn();
         boolean isDisplayed = addContactPage.isTitleDisplayed();
         assertThat(isDisplayed, is(true));

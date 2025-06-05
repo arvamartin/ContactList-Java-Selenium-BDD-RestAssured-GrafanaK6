@@ -2,10 +2,9 @@
 Feature: Adding new contact functionality
 
   Background:
-    Given user is already on the "https://thinking-tester-contact-list.herokuapp.com/login" page
-    When user enters "test@freemail.hu" email address
-    And user enters "tesztelek" password
-    And user clicks on the submit button
+    Given user is already on the "https://thinking-tester-contact-list.herokuapp.com/contactList" page
+    Given get user's auth token
+
 
   Scenario: user can add new contact to table
     When user clicks on add new contact button

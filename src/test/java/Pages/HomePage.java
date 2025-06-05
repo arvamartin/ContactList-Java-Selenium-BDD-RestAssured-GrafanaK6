@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,6 +17,17 @@ public class HomePage extends BasePage{
     @FindBy(id = "myTable")
     private List<WebElement> contactsInTable;
 
+
+    public void getCookie(){
+        String authToken = System.getProperty("authToken");
+        if (authToken != null) {
+            Cookie cookie = new Cookie("authToken", authToken);
+            driver.manage().addCookie(cookie);
+            driver.navigate().refresh();
+        } else {
+            System.out.println("authToken system property is not set.");
+        }
+    }
 
     public void clickOnLogoutBtn(){
         try {
