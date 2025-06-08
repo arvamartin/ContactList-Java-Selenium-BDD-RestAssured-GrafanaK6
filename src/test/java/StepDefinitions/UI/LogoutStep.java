@@ -9,7 +9,6 @@ public class LogoutStep {
 
     @When("user clicks on the logout button")
     public void userClicksOnTheLogoutButton() {
-        homePage.getCookie();
         homePage.clickOnLogoutBtn();
     }
 }

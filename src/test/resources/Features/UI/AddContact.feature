@@ -4,9 +4,11 @@ Feature: Adding new contact functionality
   Background:
     Given user is already on the "https://thinking-tester-contact-list.herokuapp.com/contactList" page
     Given get user's auth token
+    Given add user's cookies
 
 
   Scenario: user can add new contact to table
+    When user verifies home page's ui elements
     When user clicks on add new contact button
     And user enters firstname
     And user enters lastname
