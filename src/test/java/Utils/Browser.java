@@ -19,57 +19,60 @@ public class Browser {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            if (browserType == null) {
-                browserType = ConfigReader.getValue("basic_info", "browser");
-            }
-
-            String runMode = ConfigReader.getValue("basic_info", "runMode");
-            if (runMode == null) {
-                runMode = "local";
-            }
-
-            logger.info("Run mode: {}", runMode);
-
-            String remoteUrl = "http://localhost:4444/wd/hub";
-
-            try {
-                if (runMode.equalsIgnoreCase("grid")) {
-                    switch (browserType.toLowerCase()) {
-                        case "chrome":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), new ChromeOptions());
-                            break;
-                        case "firefox":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), new FirefoxOptions());
-                            break;
-                        case "edge":
-                            driver = new RemoteWebDriver(new URL(remoteUrl), new EdgeOptions());
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Unknown browser: " + browserType);
-                    }
-                } else {
-                    switch (browserType.toLowerCase()) {
-                        case "chrome":
-                            driver = new ChromeDriver();
-                            break;
-                        case "firefox":
-                            driver = new FirefoxDriver();
-                            break;
-                        case "edge":
-                            driver = new EdgeDriver();
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Unknown browser: " + browserType);
-                    }
-                }
-            } catch (Exception e) {
-                logger.error("Error initializing WebDriver", e);
-                throw new RuntimeException(e);
-            }
+            initializeDriver();
         }
-
         driver.manage().window().maximize();
         return driver;
+    }
+
+    private static void initializeDriver() {
+        if (browserType == null) {
+            browserType = ConfigReader.getValue("basic_info", "browser");
+        }
+
+        String runMode = ConfigReader.getValue("basic_info", "runMode");
+        if (runMode == null) {
+            runMode = "local";
+        }
+
+        logger.info("Run mode: {}", runMode);
+
+        String remoteUrl = "http://localhost:4444/wd/hub";
+
+        try {
+            if (runMode.equalsIgnoreCase("grid")) {
+                switch (browserType.toLowerCase()) {
+                    case "chrome":
+                        driver = new RemoteWebDriver(new URL(remoteUrl), new ChromeOptions());
+                        break;
+                    case "firefox":
+                        driver = new RemoteWebDriver(new URL(remoteUrl), new FirefoxOptions());
+                        break;
+                    case "edge":
+                        driver = new RemoteWebDriver(new URL(remoteUrl), new EdgeOptions());
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown browser: " + browserType);
+                }
+            } else {
+                switch (browserType.toLowerCase()) {
+                    case "chrome":
+                        driver = new ChromeDriver();
+                        break;
+                    case "firefox":
+                        driver = new FirefoxDriver();
+                        break;
+                    case "edge":
+                        driver = new EdgeDriver();
+                        break;
+                    default:
+                        throw new IllegalArgumentException("Unknown browser: " + browserType);
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error initializing WebDriver", e);
+            throw new RuntimeException(e);
+        }
     }
 
 
