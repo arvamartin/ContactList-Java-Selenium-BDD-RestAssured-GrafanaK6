@@ -41,32 +41,19 @@ public class Browser {
 
         try {
             if (runMode.equalsIgnoreCase("grid")) {
-                switch (browserType.toLowerCase()) {
-                    case "chrome":
-                        driver = new RemoteWebDriver(new URL(remoteUrl), new ChromeOptions());
-                        break;
-                    case "firefox":
-                        driver = new RemoteWebDriver(new URL(remoteUrl), new FirefoxOptions());
-                        break;
-                    case "edge":
-                        driver = new RemoteWebDriver(new URL(remoteUrl), new EdgeOptions());
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown browser: " + browserType);
-                }
+                driver = switch (browserType.toLowerCase()) {
+                    case "chrome"  -> new RemoteWebDriver(new URL(remoteUrl), new ChromeOptions());
+                    case "firefox" -> new RemoteWebDriver(new URL(remoteUrl), new FirefoxOptions());
+                    case "edge"    -> new RemoteWebDriver(new URL(remoteUrl), new EdgeOptions());
+                    default        -> throw new IllegalArgumentException("Unknown browser: " + browserType);
+                };
+
             } else {
                 switch (browserType.toLowerCase()) {
-                    case "chrome":
-                        driver = new ChromeDriver();
-                        break;
-                    case "firefox":
-                        driver = new FirefoxDriver();
-                        break;
-                    case "edge":
-                        driver = new EdgeDriver();
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown browser: " + browserType);
+                    case "chrome" -> driver = new ChromeDriver();
+                    case "firefox" -> driver = new FirefoxDriver();
+                    case "edge" -> driver = new EdgeDriver();
+                    default -> throw new IllegalArgumentException("Unknown browser: " + browserType);
                 }
             }
         } catch (Exception e) {
