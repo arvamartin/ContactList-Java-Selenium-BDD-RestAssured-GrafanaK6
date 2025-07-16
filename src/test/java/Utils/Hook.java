@@ -19,7 +19,7 @@ import static Utils.Browser.quitDriver;
 public class Hook {
     private static Logger logger = LogManager.getLogger(Hook.class);
 
-    @After
+    @After("@ui")
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
             takeScreenShot(scenario.getName());
