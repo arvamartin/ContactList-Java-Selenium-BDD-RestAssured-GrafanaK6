@@ -90,8 +90,8 @@ mvn test "-Dbasic_info.browser=chrome" "-Dbasic_info.runMode=grid" "-Dcucumber.f
 
 
 
-[Java]:https://img.shields.io/badge/Java23-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
-[java-url]:https://www.oracle.com/java/technologies/javase/jdk23-archive-downloads.html
+[Java]:https://img.shields.io/badge/Java21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
+[java-url]:https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
 [javaSmall]:https://img.shields.io/badge/JAVA-ED8B00?logo=openjdk&logoColor=white
 [Maven]:https://img.shields.io/badge/MAVEN-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white
 [maven.url]: https://maven.apache.org/download.cgi
