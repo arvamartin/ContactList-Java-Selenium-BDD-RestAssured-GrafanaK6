@@ -6,14 +6,12 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
 import java.io.File;
 import java.io.IOException;
-
 import org.apache.logging.log4j.Logger;
-
 import static Utils.Browser.getDriver;
 import static Utils.Browser.quitDriver;
+import static Utils.Constants.SCR_SHOT_PATH;
 
 
 public class Hook {
@@ -24,16 +22,14 @@ public class Hook {
         if (scenario.isFailed()) {
             takeScreenShot(scenario.getName());
         }
-        if (getDriver() != null) {
             quitDriver();
-        }
     }
 
 
     private void takeScreenShot(String name) {
         try {
             File scrFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-            File destFile = new File("screenshots/" + name + ".png");
+            File destFile = new File(SCR_SHOT_PATH + name + ".png");
             FileUtils.copyFile(scrFile, destFile);
             logger.info("Screenshot saved to: {}", destFile.getAbsolutePath());
         } catch (IOException e) {

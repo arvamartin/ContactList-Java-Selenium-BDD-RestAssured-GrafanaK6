@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import static Utils.Constants.JSON_FILE_PATH;
+
 public class JsonParser {
     private static Logger logger = (Logger) LogManager.getLogger(JsonParser.class);
 
@@ -16,7 +18,7 @@ public class JsonParser {
         Map<String, Object> result;
         try {
             ObjectMapper mapper = new ObjectMapper();
-            InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream("Json/" + fileName);
+            InputStream inputStream = JsonParser.class.getClassLoader().getResourceAsStream(JSON_FILE_PATH + fileName);
 
             if (inputStream == null) {
                 throw new IllegalArgumentException("Cannot find file: " + fileName);

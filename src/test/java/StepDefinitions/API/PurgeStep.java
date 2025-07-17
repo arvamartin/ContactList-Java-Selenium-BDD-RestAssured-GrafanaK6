@@ -1,6 +1,5 @@
 package StepDefinitions.API;
 
-import Utils.ConfigReader;
 import Utils.RequestUtil;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
@@ -9,12 +8,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.List;
 import java.util.Map;
+import static Utils.Constants.BASE_URI;
+import static Utils.Constants.CONTACTS_PARAM;
+
 
 public class PurgeStep {
-    private final String BASE_URI = ConfigReader.getValue("base", "uri");
     private List<String> IDs;
     private Map<String, Object> headers;
-    private final String PARAM = "/contacts/";
     private Logger logger = LogManager.getLogger(getClass());
 
 
@@ -25,7 +25,7 @@ public class PurgeStep {
 
             Response response = RestAssured.given()
                     .headers(headers)
-                    .get(PARAM);
+                    .get(CONTACTS_PARAM);
 
             IDs = response.jsonPath().getList("_id");
             System.out.println(IDs);
@@ -40,7 +40,7 @@ public class PurgeStep {
 
         for (String id : IDs) {
             try {
-                Response deleteResponse = RequestUtil.sendRequest("delete", PARAM + id, headers, null);
+                Response deleteResponse = RequestUtil.sendRequest("delete", CONTACTS_PARAM + id, headers, null);
                 System.setProperty("actualStatusCode", String.valueOf(deleteResponse.getStatusCode()));
             } catch (Exception e) {
                 logger.warn("Error occurred while deleting contact with ID {}: {}", id, e.getMessage(), e);

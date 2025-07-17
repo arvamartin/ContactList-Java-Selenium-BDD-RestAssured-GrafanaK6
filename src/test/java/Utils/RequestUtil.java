@@ -5,14 +5,13 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
-
 import java.util.HashMap;
 import java.util.Map;
+import static Utils.Constants.BASE_URI;
 
 public class RequestUtil {
 
     private static Logger logger = (Logger) LogManager.getLogger(RequestUtil.class);
-    private static final String BASE_URI = ConfigReader.getValue("base", "uri");
 
     public static Response sendRequest(String method, String param, Map<String, Object> headers, Map<String, Object> reqBody) {
         RestAssured.baseURI = BASE_URI;

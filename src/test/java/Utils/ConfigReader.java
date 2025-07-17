@@ -3,13 +3,15 @@ package Utils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import static Utils.Constants.CONFIG_FILE_PATH;
+
 
 public class ConfigReader {
 
     private static Properties properties = new Properties();
 
     static {
-        try (InputStream fis = ConfigReader.class.getClassLoader().getResourceAsStream("Config.properties")) {
+        try (InputStream fis = ConfigReader.class.getClassLoader().getResourceAsStream(CONFIG_FILE_PATH)) {
             if (fis != null) {
                 properties.load(fis);
             } else {

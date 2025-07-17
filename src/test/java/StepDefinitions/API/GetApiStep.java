@@ -8,12 +8,12 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-
 import java.util.HashMap;
 import java.util.Map;
-
+import static Utils.Constants.BASE_URI;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+
 
 public class GetApiStep {
 
@@ -22,7 +22,6 @@ public class GetApiStep {
     private String authToken = null;
     private final String email = ConfigReader.getValue("user", "email");
     private final String password = ConfigReader.getValue("user", "password");
-    private final String BASE_URI = ConfigReader.getValue("base", "uri");
 
 
     @Given("get user's auth token")
